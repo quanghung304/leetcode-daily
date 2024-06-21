@@ -1,4 +1,4 @@
-package org.example.wildcard;
+package org.example.JavaKnowledge.wildcard;
 
 public class Student extends Person {
     public Student(String name, int age, String address) {

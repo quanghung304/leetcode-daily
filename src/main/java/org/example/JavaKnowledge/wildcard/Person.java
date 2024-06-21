@@ -1,4 +1,4 @@
-package org.example.wildcard;
+package org.example.JavaKnowledge.wildcard;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

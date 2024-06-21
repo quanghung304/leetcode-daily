@@ -1,4 +1,4 @@
-package org.example.leetcode;
+package org.example;
 
 //Passed. Beat 97%
 public class LC20240614 {
