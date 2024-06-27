@@ -10,8 +10,8 @@ public class ValidAnagram {
     //
     //An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
     public static void main(String[] args) {
-        String s = "rat";
-        String t = "car";
+        String s = "anagram";
+        String t = "nagaram";
         System.out.println(isAnagram(s, t));
     }
 
@@ -20,39 +20,18 @@ public class ValidAnagram {
             return false;
         }
 
-        Map<Character, Integer> mapS = new HashMap<>();
-        Map<Character, Integer> mapCombine = new HashMap<>();
+        int[] count = new int[26];
 
-        for (int i=0; i<s.length(); i++) {
-            char c = s.charAt(i);
-            Integer numChar = (Integer) mapS.get(c);
-
-            if (numChar == null) {
-                mapS.put(c, 1);
-            } else {
-                mapS.put(c, numChar + 1);
-            }
+        for (char x: s.toCharArray()) {
+            count[x - 'a'] ++;
         }
 
-        String combine = s + t;
-        for (int i=0; i<combine.length(); i++) {
-            char c = combine.charAt(i);
-            Integer numChar = (Integer) mapCombine.get(c);
-
-            if (numChar == null) {
-                mapCombine.put(c,1);
-            } else {
-                mapCombine.put(c, numChar + 1);
-            }
+        for (char x: t.toCharArray()) {
+            count[x - 'a'] --;
         }
 
-        for (Map.Entry<Character, Integer> entry: mapS.entrySet()) {
-            Character c = entry.getKey();
-            Integer countS = entry.getValue();
-
-            Integer countT = mapCombine.get(c);
-
-            if (countT == null || countS * 2 != countT) {
+        for (int i: count) {
+            if (i != 0) {
                 return false;
             }
         }
