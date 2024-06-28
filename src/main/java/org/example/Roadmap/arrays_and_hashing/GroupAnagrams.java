@@ -25,15 +25,22 @@ public class GroupAnagrams {
 
     public static List<List<String>> groupAnagrams(String[] strs) {
         Map<String, List<String>> map = new HashMap<>();
-        List<List<String>> lists = new ArrayList<>();
 
         for(String s: strs) {
             char[] chars = s.toCharArray();
             Arrays.sort(chars);
             String key = Arrays.toString(chars);
-            List<String> strings = map.getOrDefault(key, new ArrayList<>());
-            strings.add(s);
-            map.put(key, strings);
+
+            if (!map.containsKey(key)) {
+                map.put(key, new ArrayList<>());
+            }
+
+            map.get(key).add(s);
+
+//            List<String> strings = map.getOrDefault(key, new ArrayList<>());
+//            strings.add(s);
+//            map.put(key, strings);
+//            cham hon do buoc put them strings vao map.
         }
 
         return new ArrayList<>(map.values());
