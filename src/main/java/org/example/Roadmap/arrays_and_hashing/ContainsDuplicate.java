@@ -1,10 +1,8 @@
 package org.example.Roadmap.arrays_and_hashing;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-
+//accepted. beats 71%
 public class ContainsDuplicate {
     //Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
     public static void main(String[] args) {

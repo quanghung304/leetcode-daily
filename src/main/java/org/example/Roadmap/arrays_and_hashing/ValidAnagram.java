@@ -1,10 +1,5 @@
 package org.example.Roadmap.arrays_and_hashing;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
+//accepted. beats 97%
 public class ValidAnagram {
     //Given two strings s and t, return true if t is an anagram of s, and false otherwise.
     //

@@ -1,7 +1,7 @@
 package org.example.Roadmap.arrays_and_hashing;
 
 import java.util.*;
-
+//accepted. beats 70%
 public class GroupAnagrams {
     //Given an array of strings strs, group the anagrams together. You can return the answer in any order.
     //

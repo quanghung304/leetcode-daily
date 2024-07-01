@@ -2,7 +2,7 @@ package org.example.Roadmap.arrays_and_hashing;
 
 import java.util.HashMap;
 import java.util.Map;
-
+//accepted. beats 98%
 public class TwoSum {
     //Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
     //
