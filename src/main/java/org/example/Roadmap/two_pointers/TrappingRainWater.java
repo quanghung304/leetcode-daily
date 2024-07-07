@@ -1,46 +1,30 @@
 package org.example.Roadmap.two_pointers;
-
+//accepted. beats 70%
 public class TrappingRainWater {
     //Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.
     public static void main(String[] args) {
-        int[] height = {4,2,0,3,2,5};
+        int[] height = {5,5,1,7,1,1,5,2,7,6};
         System.out.println(trap(height));
     }
-
+    //Nhan xet: xet cot i bat ky, goi leftMax la cot cao nhat tinh tu 0 -> i, rightMax la tu i -> length-1
+    //De y rang ko can quan tam cac cot o giua cao bnh, luong nuoc dc luu trong tai cot i dc tinh bang:
+    // min(leftMax, rightMax) - height[i]
+    //Thuat toan: dat 2 pointer left va right tai dau va cuoi mang. Neu height[left] < height[right] thi left++ cho den khi
+    //height[left] > height[right] thi right--
     public static int trap(int[] height) {
-        int left = 0;
+        int left = 0, right = height.length - 1;
+        int leftMax = height[left], rightMax = height[right];
         int rain = 0;
-        int occupied = 0;
 
-        while (height[left] == 0) {
-            left++;
-        }
-
-        int right = left+1;
-
-        int[] leftI = new int[height.length];
-        int[] rightI = new int[height.length];
-        leftI[0] = left;
-        height[0] = right;
-
-        while (right < height.length) {
-
-        }
-
-        while (right < height.length) {
-            if (height[right] == 0) {
-                right++;
-                continue;
+        while (left < right) {
+            if (height[left] <= height[right]) {
+                leftMax = Math.max(leftMax, height[left]);
+                rain += leftMax - height[left];
+                left++;
             } else {
-                if (height[right] < height[left]) {
-                    occupied += height[right];
-                    right++;
-                } else {
-                    int h = Math.min(height[left], height[right]);
-                    rain += h * (right-left-1) - occupied;
-                    left = right;
-                    right++;
-                }
+                rightMax = Math.max(rightMax, height[right]);
+                rain += rightMax - height[right];
+                right--;
             }
         }
 
