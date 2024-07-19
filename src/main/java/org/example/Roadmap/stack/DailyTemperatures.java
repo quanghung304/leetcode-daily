@@ -1,9 +1,7 @@
 package org.example.Roadmap.stack;
 
-import java.sql.Time;
-import java.time.LocalTime;
 import java.util.Stack;
-//passed. 70%
+//passed. 76%
 public class DailyTemperatures {
     //Given an array of integers temperatures represents the daily temperatures, return an array answer such that
     // answer[i] is the number of days you have to wait after the ith day to get a warmer temperature. If there is no future day
