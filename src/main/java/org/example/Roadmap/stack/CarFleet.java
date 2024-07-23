@@ -17,7 +17,10 @@ public class CarFleet {
         int[] speed = {2,4,1,1,3};
         System.out.println(carFleet(target, position, speed));
     }
-
+    //approach: 2 xe hop thanh 1 fleet khi xe di sau duoi kip xe di truoc trc khi den dich. Noi cach khac, thoi gian de xe
+    //sau den dich < xe trc => su dung phuong phap Monotoic stack
+    //Monotonic stack là 1 loại CTDL dùng để lưu trữ 1 dãy số tăng/giảm dần , nó được sử dụng để tối ưu nhiều bài
+    //toán liên quan tới thao tác tìm kiếm phần tử gần nhất lon hon hoac nho hon phan tu nao do.
     public static int carFleet(int target, int[] position, int[] speed) {
         int length = position.length;
         int[][] cars = new int[length][2];
