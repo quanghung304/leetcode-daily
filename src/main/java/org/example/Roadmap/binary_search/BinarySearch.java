@@ -6,8 +6,8 @@ public class BinarySearch {
     //
     //You must write an algorithm with O(log n) runtime complexity.
     public static void main(String[] args) {
-        int[] nums = {1,2};
-        int target = 3;
+        int[] nums = {1,5};
+        int target = 4;
 //        int[] nums = {2,5};
 //        int target = 5;
         System.out.println(search(nums, target));
@@ -19,7 +19,7 @@ public class BinarySearch {
         int middle;
 
         while (left <= right) {
-            middle = left + (right - left) / 2;
+            middle = (right + left) / 2;
 
             if (nums[middle] == target) {
                 return middle;
