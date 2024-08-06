@@ -10,9 +10,10 @@ public class BestTimeToBuyAndSellStock {
         int[] prices = {1,2};
         System.out.println(maxProfit(prices));
     }
-
+    //brute force approach: with element i-th, find max element from i+1 till the end of array. Complexity: O(n)
+    //Problem: max element belong to the future, as we aren't reach it => we should turn things down, by remember the min element.
     public static int maxProfit(int[] prices) {
-        int cheepest = prices[0], maxPrice = 0, maxProfit = 0;
+        int cheepest = prices[0], maxProfit = 0;
 
         for (int i=1; i<prices.length; i++) {
             if (prices[i] < cheepest) cheepest = prices[i];
