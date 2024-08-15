@@ -32,6 +32,29 @@ public class ListNode {
 
         return head;
     }
+    //create a linked list with a cycle in it.
+    public static ListNode createAList(int[] nums, int pos) {
+        ListNode head = null, curNode = null, cycleNode = null;
+
+        for (int i=0; i< nums.length; i++) {
+            ListNode newNode = new ListNode(nums[i]);
+            if (i == pos) {
+                cycleNode = newNode;
+            }
+
+            if (Objects.isNull(head)) {
+                head = newNode;
+                curNode = head;
+                continue;
+            }
+
+            curNode.next = newNode;
+            curNode = newNode;
+        }
+
+        curNode.next = cycleNode;
+        return head;
+    }
 
     public static void printList(ListNode head) {
         ListNode curNode = head;
