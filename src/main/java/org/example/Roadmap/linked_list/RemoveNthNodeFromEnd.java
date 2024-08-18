@@ -10,7 +10,7 @@ public class RemoveNthNodeFromEnd {
         ListNode head = ListNode.createAList(nums);
         ListNode.printList(removeNthFromEnd(head, n));
     }
-    //I found out that 2 pointers is an useful method to deal with linked list problems. As we can't move backward a linked list,
+    //I found out that 2 pointers is a useful method to deal with linked list problems. As we can't move backward a linked list,
     //so one of the pointers helps us keep track on the browsed nodes.
     public static ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode slow = null, fast = null;
