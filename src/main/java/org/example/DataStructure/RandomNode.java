@@ -3,25 +3,25 @@ package org.example.DataStructure;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Node {
+public class RandomNode {
     public int val;
-    public Node next;
-    public Node random;
+    public RandomNode next;
+    public RandomNode random;
 
-    public Node(int val) {
+    public RandomNode(int val) {
         this.val = val;
         this.next = null;
         this.random = null;
     }
 
-    public static Node createList(Integer[][] nums) {
-        Map<Integer, Node> map = new HashMap<>();
-        Node head = new Node(nums[0][0]);
+    public static RandomNode createList(Integer[][] nums) {
+        Map<Integer, RandomNode> map = new HashMap<>();
+        RandomNode head = new RandomNode(nums[0][0]);
         map.put(0, head);
-        Node current = head;
+        RandomNode current = head;
 
         for (int i=1; i<nums.length; i++) {
-            Node newNode = new Node(nums[i][0]);
+            RandomNode newNode = new RandomNode(nums[i][0]);
             map.put(i, newNode);
             current.next = newNode;
             current = newNode;
@@ -42,10 +42,10 @@ public class Node {
         return head;
     }
 
-    public static void printList(Node head) {
-        Node current = head;
+    public static void printList(RandomNode head) {
+        RandomNode current = head;
         int i =0;
-        Map<Node, Integer> map = new HashMap<>();
+        Map<RandomNode, Integer> map = new HashMap<>();
 
         while (current != null) {
             map.put(current, i);

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import org.example.DataStructure.CircularDoublyLinkedList.Node;
+import org.example.DataStructure.DoublyNode;
 //97%
 public class LRUCache {
     //Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.
@@ -17,9 +17,9 @@ public class LRUCache {
     // If the number of keys exceeds the capacity from this operation, evict the least recently used key.
     //The functions get and put must each run in O(1) average time complexity.
     int capacity;
-    Node head = new Node(-1, -1);
-    Node tail = new Node(-1, -1);
-    Map<Integer, Node> map = new HashMap<>();
+    DoublyNode head = new DoublyNode(-1, -1);
+    DoublyNode tail = new DoublyNode(-1, -1);
+    Map<Integer, DoublyNode> map = new HashMap<>();
 
     public LRUCache(int capacity) {
         this.capacity = capacity;
@@ -27,30 +27,30 @@ public class LRUCache {
         tail.prev = head;
     }
 
-    public void addNode(Node newNode) {
-        Node beforeTail = tail.prev;
+    public void addDoublyNode(DoublyNode newDoublyNode) {
+        DoublyNode beforeTail = tail.prev;
 
-        beforeTail.next = newNode;
-        newNode.prev = beforeTail;
+        beforeTail.next = newDoublyNode;
+        newDoublyNode.prev = beforeTail;
 
-        newNode.next = tail;
-        tail.prev = newNode;
+        newDoublyNode.next = tail;
+        tail.prev = newDoublyNode;
     }
 
-    public void removeNode (Node node) {
-        Node before = node.prev;
-        Node after = node.next;
+    public void removeDoublyNode (DoublyNode node) {
+        DoublyNode before = node.prev;
+        DoublyNode after = node.next;
 
         before.next = after;
         after.prev = before;
     }
 
     public int get(int key) {
-        Node node = map.get(key);
+        DoublyNode node = map.get(key);
 
         if (Objects.nonNull(node)) {
-            removeNode(node);
-            addNode(node);
+            removeDoublyNode(node);
+            addDoublyNode(node);
             return node.val;
         }
 
@@ -58,22 +58,22 @@ public class LRUCache {
     }
 
     public void put(int key, int value) {
-        Node node = map.get(key);
+        DoublyNode node = map.get(key);
 
         if (node != null) {
             node.val = value;
-            removeNode(node);
-            addNode(node);
+            removeDoublyNode(node);
+            addDoublyNode(node);
             return;
         }
 
-        node = new Node(key, value);
-        addNode(node);
+        node = new DoublyNode(key, value);
+        addDoublyNode(node);
         map.put(key, node);
 
         if (map.size() > capacity) {
             int evictedKey = head.next.key;
-            removeNode(head.next);
+            removeDoublyNode(head.next);
             map.remove(evictedKey);
         }
     }

@@ -1,6 +1,6 @@
 package org.example.Roadmap.linked_list;
 
-import org.example.DataStructure.Node;
+import org.example.DataStructure.RandomNode;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,18 +24,18 @@ public class CopyListWithRandomPointer {
     //random_index: the index of the node (range from 0 to n-1) that the random pointer points to, or null if it does not point to any node.
     public static void main(String[] args) {
         Integer[][] nums = {{7,null},{13,0}, {11,4},{10,2},{1,0}};
-        Node head = Node.createList(nums);
-        Node.printList(copyRandomList(head));
+        RandomNode head = RandomNode.createList(nums);
+        RandomNode.printList(copyRandomList(head));
 
     }
 
-    public static Node copyRandomList(Node head) {
-        Node current = head;
-        Node newHead = null, newCurrent = null;
-        Map<Node, Node> map = new HashMap<>();
+    public static RandomNode copyRandomList(RandomNode head) {
+        RandomNode current = head;
+        RandomNode newHead = null, newCurrent = null;
+        Map<RandomNode, RandomNode> map = new HashMap<>();
 
         while (current != null) {
-            Node newNode = new Node(current.val);
+            RandomNode newNode = new RandomNode(current.val);
             map.put(current, newNode);
             current = current.next;
 
@@ -53,7 +53,7 @@ public class CopyListWithRandomPointer {
         newCurrent = newHead;
 
         while (current != null) {
-            Node random = current.random == null ? null : map.get(current.random);
+            RandomNode random = current.random == null ? null : map.get(current.random);
             newCurrent.random = random;
 
             current = current.next;
