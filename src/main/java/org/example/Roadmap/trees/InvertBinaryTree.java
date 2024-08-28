@@ -1,4 +1,4 @@
-package org.example.Roadmap.tree;
+package org.example.Roadmap.trees;
 
 import org.example.DataStructure.TreeNode;
 //100
@@ -8,11 +8,11 @@ public class InvertBinaryTree {
     //Output: [2,3,1]
     public static void main(String[] args) {
         Integer[] nums = {4,2,7,1,3,6,9};
-        TreeNode root = TreeNode.buildTree(nums);
+        TreeNode root = TreeNode.buildBinarySearchTree(nums);
         TreeNode newRoot = invertTree(root);
         TreeNode.printTreeInOrder(newRoot);
     }
-    //pretty ez. first we invert the left tree, seconde invert the right tree. And then we set left = right and right = left
+    //pretty ez. first we invert the left tree, second invert the right tree. And then we set left = right and right = left
     public static TreeNode invertTree(TreeNode root) {
         if (root == null) return null;
         TreeNode left = invertTree(root.left);
