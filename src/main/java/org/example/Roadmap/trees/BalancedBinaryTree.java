@@ -1,7 +1,7 @@
 package org.example.Roadmap.trees;
 
 import org.example.DataStructure.TreeNode;
-
+//100
 public class BalancedBinaryTree {
     //Given a binary tree, determine if it is height-balanced
     public static void main(String[] args) {
@@ -11,7 +11,7 @@ public class BalancedBinaryTree {
     }
 
     public static boolean isBalanced(TreeNode root) {
-        if (traverse(root) > 1000) return false;
+        if (traverse(root) >= 1000) return false;
         return true;
     }
 
