@@ -69,6 +69,17 @@ public class TreeNode {
         return root;
     }
 
+    public static TreeNode findNode(TreeNode node, int val) {
+        while (node != null) {
+            if (node.val == val) return node;
+
+            if (val > node.val) node = node.right;
+            else node = node.left;
+        }
+
+        return null;
+    }
+
     public static void printTreeInOrder(TreeNode root) {
         if (root == null) {
             return;
